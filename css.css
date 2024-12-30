@@ -44,7 +44,7 @@
             flex: 1 1 auto;
             max-width: 60%;
             text-align: center;
-            #background-color: #09090911;
+           
         }
 
         @media (max-width: 768px) {
