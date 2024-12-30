@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css"> 
+    <title>Asius!!!!!</title>
+</head>
+<body>
+    <header> 
+        <div class="box" width="90vw">
+            <button width="90vw" class="buttonspace" onclick="location.href='./#Serdecznie_pozdrawiam_pana_mareczka'">
+                <table width="100%">
+                <tr>
+                    <td style="text-align: left;"><span class="text">asius.pages.dev</span></td>
+                    <td style="text-align: right;"><span class="text>"><div id="dynamic-text">Łączność to  <span id="changing-word">przyszłość</span></div></span></td>
+                </tr>
+            </table></button>
+            <div class="space">
+              <span style="--i: 31" class="star"></span>
+              <span style="--i: 12" class="star"></span>
+              <span style="--i: 57" class="star"></span>
+              <span style="--i: 93" class="star"></span>
+              <span style="--i: 23" class="star"></span>
+              <span style="--i: 70" class="star"></span>
+              <span style="--i: 6" class="star"></span>
+            </div>
+          </div> 
+    </header>
+    <main>
+        <div class="content">
+            <div class="item"><button data-label="Register" class="rainbow-hover" onclick="location.href='./strona_1'">
+                <span class="sp">Strona Pierwsza!!!1</span>
+              </button> </div>
+            <div class="item"> <button onclick="location.href='./strona_2'">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front text"> Strona druga!!!2!1
+                </span>
+              </button></div>
+              <div class="item">
+                
+              </div>
+            
+
+        </div>
+    </main>
+</body>
+
+
+<script>
+    const words = ["przyszłość", "przykrość"]; // Lista słów do zmiany
+    let currentIndex = 0;
+
+    setInterval(() => {
+        const changingWord = document.getElementById("changing-word");
+        currentIndex = (currentIndex + 1) % words.length; // Przechodź przez indeksy
+        changingWord.textContent = words[currentIndex];
+    }, 1300); // Zmiana co 1000 ms (1 sekunda)
+</script>
+
+
+
+</html>
