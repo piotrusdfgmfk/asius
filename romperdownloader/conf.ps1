@@ -3,7 +3,7 @@ function Sprawdzytdlp {
         $output = & yt-dlp 2>&1 | Select-Object -First 2
 
         if ($output -like "*System.Management.Automation.RemoteException*") {
-            Write-Host "yt-dlp jest już zainstalowany"
+            Write-Host "yt-dlp jest juz zainstalowany"
         } 
         else {
 
@@ -22,7 +22,7 @@ Invoke-WebRequest "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-
  $path = "$env:ProgramData\romper-downloader"
 
 Write-Host "Czarodziej konfiguracji Romper Downloadera v0.97" 
-Write-Host "Pobieranie skryptów..."
+Write-Host "Pobieranie skryptow..."
 Invoke-WebRequest "https://asius.pages.dev/romperdownloader/romper-downloader.ps1" -OutFile "$env:ProgramData/romper-downloader/romper-downloader.ps1"
 
 Sprawdzytdlp
@@ -52,8 +52,8 @@ if (-not $ffmpegInstalled) {
     }
     else
     {
-    Write-Host "7zip nie jest zainstalowany, wymagane ręczne rozpakowanie plików z archiwum $path\ffmpeg.7z do folderu $path\ffmpeg" -ForegroundColor Yellow
-    Write-Host "Po wypakowaniu plików naciśnij enter aby kontynuować działanie instalatora" -ForegroundColor Yellow -NoNewline
+    Write-Host "7zip nie jest zainstalowany, wymagane reczne rozpakowanie plikow z archiwum $path\ffmpeg.7z do folderu $path\ffmpeg" -ForegroundColor Yellow
+    Write-Host "Po wypakowaniu plikow nacisnij enter aby kontynuowac działlnie instalatora" -ForegroundColor Yellow -NoNewline
     $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
     }
     
@@ -70,7 +70,7 @@ if (-not $ffmpegInstalled) {
     Remove-Item -Path $sourceFolder2 -Recurse -Force
     Remove-Item -Path "$path\ffmpeg.7z" -Force
 } else {
-   Write-Host "ffmpeg jest już zainstalowany"
+   Write-Host "ffmpeg jest juz zainstalowany"
 }
 
 $folderToCheck = "$path\" 
@@ -88,9 +88,9 @@ if ($pathEntries -contains $folderToCheck) {
 
 Invoke-WebRequest "https://asius.pages.dev/romperdownloader/install.bat" -OutFile "$env:ProgramData/romper-downloader/update_repair.bat"
 
-Write-Host "Instalacja zakończona pomyślnie"
+Write-Host "Instalacja zakonczona pomyslnie"
 Write-Host " "
-Write-Host "Aby wywołać skrypt wpisz romper-downloader.ps1 w powershellu"
-Write-Host "Aby zaaktualizować lub naprawić skrypt i/lub jego zależności uruchom plik update_repair.bat w folderze $path"
+Write-Host "Aby wywolac skrypt wpisz romper-downloader.ps1 w powershellu"
+Write-Host "Aby zaaktualizować lub naprawic skrypt i/lub jego zalezności uruchom plik update_repair.bat w folderze $path"
 
 Pause
