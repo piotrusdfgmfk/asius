@@ -22,7 +22,6 @@ Invoke-WebRequest "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-
 }
 
 
-
 function SprawdzFFmpeg {
     try {
         # Uruchomienie ffmpeg i pobranie pierwszej linii wyniku
@@ -30,27 +29,15 @@ function SprawdzFFmpeg {
 
         # Sprawdzenie pierwszych 16 znaków
         if ($output -like "ffmpeg version *") {
-            Write-Host "ffmpeg jest już zainstalowane"
+                 Write-Host "ffmpeg jest już zainstalowane"
         } 
         else {
-    $is_ffmpeg = "false"
+           $is_ffmpeg = "false"
+        }
+    } catch {
+     $is_ffmpeg = "false"
+    }
 }
-else
-{
- $is_ffmpeg = "false"
-}
-    }}
-
-
-
-
-
-
-
-
-
-
-
 
 
 Write-Host "Czarodziej konfiguracji Romper Downloadera v0.97 rozpoczyna prace" 
