@@ -22,7 +22,7 @@ powershell $content = Get-Content '%APP_FOLDER%\conf.ps1' -Raw
 
 powershell [System.IO.File]::WriteAllLines('%APP_FOLDER%\conf.ps1', $content, [System.Text.Encoding]::UTF8)
 
-
+::dupadupa
 
 :: Uruchamianie pobranego skryptu PowerShell
 powershell -ExecutionPolicy Bypass -File "%APP_FOLDER%\conf.ps1"
