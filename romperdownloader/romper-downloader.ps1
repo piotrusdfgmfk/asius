@@ -53,7 +53,7 @@ Sprawdzytdlp
 # Wywołanie funkcji
 SprawdzFFmpeg
 
- Write-Host "Super duper romper downloader v0.97"
+ Write-Host "Romper Downloader v0.97"
 Write-Host " "
 
 Write-Host "Obsługiwane serwisy: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"

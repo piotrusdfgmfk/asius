@@ -5,7 +5,7 @@ function Sprawdzytdlp {
 
         # Sprawdzenie pierwszych 16 znaków
         if ($output -like "*System.Management.Automation.RemoteException*") {
-            Write-Host "yt-dlp jest już zainstalowane"
+            Write-Host "yt-dlp jest już zainstalowany"
         } 
         else {
 
@@ -22,35 +22,31 @@ Invoke-WebRequest "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-
 }
 
 
-function SprawdzFFmpeg {
-    try {
-        # Uruchomienie ffmpeg i pobranie pierwszej linii wyniku
-        $output = & ffmpeg -version 2>&1 | Select-Object -First 1
-
-        # Sprawdzenie pierwszych 16 znaków
-        if ($output -like "ffmpeg version *") {
-                 Write-Host "ffmpeg jest już zainstalowane"
-        } 
-        else {
-           $is_ffmpeg = "false"
-        }
-    } catch {
-     $is_ffmpeg = "false"
-    }
-}
+ $path = "$env:ProgramData\romper-downloader"
 
 
-Write-Host "Czarodziej konfiguracji Romper Downloadera v0.97 rozpoczyna prace" 
+Write-Host "Czarodziej konfiguracji Romper Downloadera v0.97" 
 Write-Host "Pobieranie skryptów..."
 Invoke-WebRequest "https://asius.pages.dev/romperdownloader/romper-downloader.ps1" -OutFile "$env:ProgramData/romper-downloader/romper-downloader.ps1"
 Sprawdzytdlp
-SprawdzFFmpeg
 
-if ($is_ffmpeg == false) {
+# Sprawdzenie, czy ffmpeg jest zainstalowany
+$ffmpegInstalled = $false
+try {
+    $ffmpegVersion = ffmpeg -version 2>$null
+    if ($ffmpegVersion) {
+        $ffmpegInstalled = $true
+    }
+} catch {
+    $ffmpegInstalled = $false
+}
+
+# Jeśli ffmpeg nie jest zainstalowany, wykonaj dodatkowy kod
+if (-not $ffmpegInstalled) {
+    Write-Host "FFmpeg nie jest zainstalowany. Wykonuję dodatkowe linie kodu..."
     Write-Host "Pobieranie ffmpeg..."
     Invoke-WebRequest "https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z" -OutFile "$env:ProgramData/romper-downloader/ffmpeg.7z"
     mkdir "$env:ProgramData/romper-downloader/ffmpeg"
-    $path = "$env:ProgramData/romper-downloader"
     Write-Host "Rozpakowywanie ffmpeg..."
     $is_7zip = Test-Path "C:\PROGRA~1\7-Zip\7z.exe"
     if ($is_7zip)
@@ -82,17 +78,25 @@ if ($is_ffmpeg == false) {
     if ($binFolder) {
     Get-ChildItem -Path $binFolder -Filter "*.exe" -File | Move-Item -Destination $destinationPath -Force
     }
-       
-    }
+    Remove-Item -Path $sourceFolder2 -Recurse -Force
+    Remove-Item -Path "$path\ffmpeg.7z" -Force
+} else {
+   Write-Host "ffmpeg jest już zainstalowany"
+}
 
-
-
-
-
-[Environment]::SetEnvironmentVariable(
+if (Test-Path -Path "$path\" ) {
+    Write-Host "Romper downloader jest już skonfigurowany"}
+    else {
+    Write-Host "Konfiguracja Romper Downloadera..."
+    [Environment]::SetEnvironmentVariable(
     "Path",
     [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine) + ";$path",
     [EnvironmentVariableTarget]::Machine)
+    }
 
-Remove-Item -Path $sourceFolder2 -Recurse -Force
-Remove-Item -Path "$path\ffmpeg.7z" -Force
+Write-Host "Instalacja zakończona pomyślnie"
+Write-Host " "
+Write-Host "Aby wywołać skrypt wpisz romper-downloader.ps1 w powershellu"
+Write-Host "Aby zaaktualizować lub naprawić skrypt i/lub jego zależności uruchom plik update/repair.bat w folderze $path"
+
+Pause
