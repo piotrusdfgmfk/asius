@@ -47,5 +47,11 @@ if ($binFolder) {
     Get-ChildItem -Path $binFolder -Filter "*.exe" -File | Move-Item -Destination $destinationPath -Force
 }
 
+
+[Environment]::SetEnvironmentVariable(
+    "Path",
+    [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine) + ";$path",
+    [EnvironmentVariableTarget]::Machine)
+
 Remove-Item -Path $sourceFolder2 -Recurse -Force
 Remove-Item -Path "$path\ffmpeg.7z" -Force
