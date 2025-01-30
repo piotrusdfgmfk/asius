@@ -12,12 +12,12 @@ function Sprawdzytdlp {
 Write-Host $output
             Write-Host "Pobieranie yt-dlp..."
 Invoke-WebRequest "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -OutFile "$env:ProgramData/romper-downloader/yt-dlp.exe"
-            exit 1
+
         }
     } catch {
         Write-Host "Pobieranie yt-dlp..."
 Invoke-WebRequest "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe" -OutFile "$env:ProgramData/romper-downloader/yt-dlp.exe"
-            exit 1
+
     }
 }
 
