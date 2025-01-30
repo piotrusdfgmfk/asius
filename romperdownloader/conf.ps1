@@ -43,10 +43,9 @@ try {
 
 # Jeśli ffmpeg nie jest zainstalowany, wykonaj dodatkowy kod
 if (-not $ffmpegInstalled) {
-    Write-Host "FFmpeg nie jest zainstalowany. Wykonuję dodatkowe linie kodu..."
     Write-Host "Pobieranie ffmpeg..."
     Invoke-WebRequest "https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z" -OutFile "$env:ProgramData/romper-downloader/ffmpeg.7z"
-    mkdir "$env:ProgramData/romper-downloader/ffmpeg"
+    New-Item -ItemType Directory -Path "$env:ProgramData/romper-downloader/ffmpeg"
     Write-Host "Rozpakowywanie ffmpeg..."
     $is_7zip = Test-Path "C:\PROGRA~1\7-Zip\7z.exe"
     if ($is_7zip)
@@ -57,7 +56,7 @@ if (-not $ffmpegInstalled) {
         $zipFile = "$env:ProgramData/romper-downloader/ffmpeg.7z"
         $extractPath = "$env:ProgramData/romper-downloader/ffmpeg"
         
-        iex "$7zipPath e -o$extractPath -y $zipFile"
+        &"$7zipPath" e -o"$extractPath" -y "$zipFile" *> $null
     }
     else
     {
