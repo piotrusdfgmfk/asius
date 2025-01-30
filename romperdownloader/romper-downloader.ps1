@@ -1,6 +1,3 @@
-Write-Host "Próbujemy pobrac nową wersje romper-downloader"
-Invoke-WebRequest "https://asius.pages.dev/romperdownloader/romper-downloader.ps1" -OutFile ./romper-downloader.ps1
-
 function Sprawdzytdlp {
     try {
         # Uruchomienie ffmpeg i pobranie pierwszej linii wyniku
@@ -56,7 +53,7 @@ Sprawdzytdlp
 # Wywołanie funkcji
 SprawdzFFmpeg
 
- Write-Host "Super duper romper downloader v0.67.5"
+ Write-Host "Super duper romper downloader v0.97"
 Write-Host " "
 
 Write-Host "Obsługiwane serwisy: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"
