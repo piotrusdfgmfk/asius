@@ -99,6 +99,8 @@ if ($pathEntries -contains $folderToCheck) {
 Write-Host "Instalacja zakończona pomyślnie"
 Write-Host " "
 Write-Host "Aby wywołać skrypt wpisz romper-downloader.ps1 w powershellu"
-Write-Host "Aby zaaktualizować lub naprawić skrypt i/lub jego zależności uruchom plik update/repair.bat w folderze $path"
+Write-Host "Aby zaaktualizować lub naprawić skrypt i/lub jego zależności uruchom plik update_repair.bat w folderze $path"
+
+Invoke-WebRequest "https://asius.pages.dev/romperdownloader/install.bat" -OutFile "$env:ProgramData/romper-downloader/update_repair.ps1"
 
 Pause
