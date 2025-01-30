@@ -1,5 +1,6 @@
 @echo off
 
+set "APP_FOLDER=%ProgramData%\romper-downloader"
 
 if not exist "%APP_FOLDER%" mkdir "%APP_FOLDER%"
 
