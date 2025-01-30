@@ -29,7 +29,7 @@ function SprawdzFFmpeg {
         $output = & ffmpeg -version 2>&1 | Select-Object -First 1
 
         # Sprawdzenie pierwszych 16 znaków
-        if ($output -like "ffmpeg version 7*") {
+        if ($output -like "ffmpeg version *") {
             Write-Host "ffmpeg jest już zainstalowane"
         } 
         else {
