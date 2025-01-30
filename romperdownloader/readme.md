@@ -15,3 +15,5 @@ Dlaczego? bo romper nie ogarnia powershelka i nie umiał odpalić tego skryptu
 - dupadupadupa
 
 # [Pobierz](https://github.com/piotrusdfgmfk/asius/blob/23abb726c4451a791bc695683b8bb445e2b1f3f8/romperdownloader/install.bat)
+
+ewenemtualnie jak masz większe skile niż romper pobierz sam skrypt bez instalatorka i tez fajnie bedzie
