@@ -15,7 +15,14 @@ set "APP_FOLDER=%ProgramFiles%\romper-downloader"
 if not exist "%APP_FOLDER%" mkdir "%APP_FOLDER%"
 
 :: Pobieranie skryptu PowerShell
-powershell -Command "Invoke-WebRequest -Uri 'https://asius.pages.dev/romperdownloader/romper-downloader.ps1' -OutFile '%APP_FOLDER%\romper-downloader.ps1'"
+
+
+powershell -Command "& {
+    Invoke-WebRequest -Uri 'https://asius.pages.dev/romperdownloader/romper-downloader.ps1' -OutFile '%APP_FOLDER%\romper-downloader.ps1';
+    $content = Get-Content '%APP_FOLDER%\romper-downloader.ps1' -Raw;
+    $content | Set-Content '%APP_FOLDER%\romper-downloader.ps1' -Encoding utf8
+}"
+
 
 :: Uruchamianie pobranego skryptu PowerShell
 powershell -ExecutionPolicy Bypass -File "%APP_FOLDER%\romper-downloader.ps1"
