@@ -28,7 +28,8 @@ else
     Write-Host "7zip nie jest zainstalowany, wymagane ręczne rozpakowanie plików z archiwum $path\ffmpeg.7z do folderu $path\ffmpeg" -ForegroundColor Yellow
     Write-Host "Po wypakowaniu plików naciśnij enter aby kontynuować działanie instalatora" -ForegroundColor Yellow
 
-    break
+    Write-Host -NoNewLine 'Press any key to continue...';
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 }
 
 
