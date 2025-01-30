@@ -14,18 +14,20 @@ set "APP_FOLDER=%ProgramFiles%\romper-downloader"
 :: Tworzenie folderu docelowego (jeśli nie istnieje)
 if not exist "%APP_FOLDER%" mkdir "%APP_FOLDER%"
 
+
 :: Pobieranie skryptu PowerShell
+powershell -Command "Invoke-WebRequest -Uri 'https://asius.pages.dev/romperdownloader/conf.ps1' -OutFile '%APP_FOLDER%\conf.ps1'"
 
-powershell Invoke-WebRequest -Uri 'https://asius.pages.dev/romperdownloader/conf.ps1' -OutFile '%APP_FOLDER%\conf.ps1'
-
-powershell $content = Get-Content '%APP_FOLDER%\conf.ps1' -Raw
-
-powershell $content | Set-Content '%APP_FOLDER%\conf.ps1' -Encoding utf8
+:: Konwersja pliku do UTF-8 bez BOM
+:: powershell -Command " $content = Get-Content '%APP_FOLDER%\conf.ps1' -Raw; $utf8NoBom = New-Object System.Text.UTF8Encoding $false; [System.IO.File]::WriteAllText('%APP_FOLDER%\conf.ps1', $content, $utf8NoBom) "
 
 :: dupadupa
 
 :: Uruchamianie pobranego skryptu PowerShell
 powershell -ExecutionPolicy Bypass -File "%APP_FOLDER%\conf.ps1"
 
+::pwsh.exe -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-NoProfile -ExecutionPolicy Bypass -File ""%APP_FOLDER%\conf.ps1""' -Verb RunAs}"
+
 pause
+
 

@@ -156,6 +156,7 @@ if ([string]::IsNullOrWhiteSpace($VideoFormat)) {
 
 Write-Host " "
 Write-Host "Po wywołaniu polecenia yt-dlp należy wskazać wybrany format pobierania pliku albo wybrać domyślny klikając enter"
+Write-Host "Istnieje możliwość połączenia różnych formatów audio i video poprzez wpisanie id obu formatów oddzielonych znakiem *+* np: *2137+69*"
 
 #Write-Host "[Debug] $lokalizacja; $link; $AudioVideo ;$AudioFormat; $VideoFormat ;$remuxformat" -ForegroundColor Yellow
 #Write-Host '[Debug] yt-dlp $link -f - $remuxFormat -o "%(title)s.%(ext)s" -P $lokalizacja ' -ForegroundColor Yellow
