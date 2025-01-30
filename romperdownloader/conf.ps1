@@ -83,15 +83,18 @@ if (-not $ffmpegInstalled) {
    Write-Host "ffmpeg jest już zainstalowany"
 }
 
-if (Test-Path -Path "$path\" ) {
-    Write-Host "Romper downloader jest już skonfigurowany"}
-    else {
+$folderToCheck = "$path\"  # Podmień na swój folder
+$pathEntries = [System.Environment]::GetEnvironmentVariable("Path", "Machine") -split ";" 
+
+if ($pathEntries -contains $folderToCheck) {
+    Write-Host "Romper downloader jest już skonfigurowany"
+} else {
     Write-Host "Konfiguracja Romper Downloadera..."
     [Environment]::SetEnvironmentVariable(
     "Path",
     [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine) + ";$path",
     [EnvironmentVariableTarget]::Machine)
-    }
+}
 
 Write-Host "Instalacja zakończona pomyślnie"
 Write-Host " "
