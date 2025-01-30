@@ -45,7 +45,7 @@ try {
 if (-not $ffmpegInstalled) {
     Write-Host "Pobieranie ffmpeg..."
     Invoke-WebRequest "https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z" -OutFile "$env:ProgramData/romper-downloader/ffmpeg.7z"
-    New-Item -ItemType Directory -Path "$env:ProgramData/romper-downloader/ffmpeg"
+    New-Item -ItemType Directory -Path "$env:ProgramData/romper-downloader/ffmpeg" *> $null
     Write-Host "Rozpakowywanie ffmpeg..."
     $is_7zip = Test-Path "C:\PROGRA~1\7-Zip\7z.exe"
     if ($is_7zip)
@@ -101,6 +101,6 @@ Write-Host " "
 Write-Host "Aby wywołać skrypt wpisz romper-downloader.ps1 w powershellu"
 Write-Host "Aby zaaktualizować lub naprawić skrypt i/lub jego zależności uruchom plik update_repair.bat w folderze $path"
 
-Invoke-WebRequest "https://asius.pages.dev/romperdownloader/install.bat" -OutFile "$env:ProgramData/romper-downloader/update_repair.ps1"
+Invoke-WebRequest "https://asius.pages.dev/romperdownloader/install.bat" -OutFile "$env:ProgramData/romper-downloader/update_repair.bat"
 
 Pause
