@@ -22,7 +22,7 @@ powershell $content = Get-Content '%APP_FOLDER%\conf.ps1' -Raw
 
 powershell $content | Set-Content '%APP_FOLDER%\conf.ps1' -Encoding utf8
 
-::dupadupa
+:: dupadupa
 
 :: Uruchamianie pobranego skryptu PowerShell
 powershell -ExecutionPolicy Bypass -File "%APP_FOLDER%\conf.ps1"
