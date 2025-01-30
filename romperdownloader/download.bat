@@ -9,7 +9,7 @@ if %errorLevel% neq 0 (
 )
 
 :: Ustawienie ścieżki docelowej
-set "APP_FOLDER=%ProgramFiles%\romper-downloader"
+set "APP_FOLDER=%ProgramData%\romper-downloader"
 
 :: Tworzenie folderu docelowego (jeśli nie istnieje)
 if not exist "%APP_FOLDER%" mkdir "%APP_FOLDER%"
