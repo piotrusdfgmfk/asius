@@ -1,10 +1,10 @@
 function Sprawdzytdlp {
     try {
         # Uruchomienie ffmpeg i pobranie pierwszej linii wyniku
-        $output = & yt-dlp -U 2>&1 | Select-Object -First 2
+        $output = & yt-dlp -U 2>&1 | Select-Object -First 6
 
         # Sprawdzenie pierwszych 16 znaków
-        if ($output -like "*System.Management.Automation.RemoteException*") {
+        if ($output -like "Latest*") {
             
         } 
         else {
