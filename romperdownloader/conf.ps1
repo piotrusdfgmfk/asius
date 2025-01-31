@@ -53,7 +53,7 @@ if (-not $ffmpegInstalled) {
     else
     {
     Write-Host "7zip nie jest zainstalowany, wymagane reczne rozpakowanie plikow z archiwum $path\ffmpeg.7z do folderu $path\ffmpeg" -ForegroundColor Yellow
-    Write-Host "Po wypakowaniu plikow nacisnij enter aby kontynuowac działlnie instalatora" -ForegroundColor Yellow -NoNewline
+    Write-Host "Po wypakowaniu plikow nacisnij enter aby kontynuowac dzialnie instalatora" -ForegroundColor Yellow -NoNewline
     $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
     }
     
