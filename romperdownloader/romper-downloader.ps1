@@ -58,7 +58,7 @@ Sprawdzytdlp
 # Wywolanie funkcji
 SprawdzFFmpeg
 
-Write-Host "Romper Downloader v1.0"
+Write-Host "Romper Downloader v1.67"
 Write-Host " "
 
 Write-Host "Obslugiwane serwisy: https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md"
@@ -159,11 +159,13 @@ if ([string]::IsNullOrWhiteSpace($VideoFormat)) {
 Write-Host " "
 Write-Host "Po wywolaniu polecenia yt-dlp nalezy wskazac wybrany format pobierania pliku albo wybrac domyslny klikajac enter"
 Write-Host "Istnieje mozliwosc polaczenia roznych formatow audio i video poprzez wpisanie id obu formatow oddzielonych znakiem *+* np: *2137+69*"
-
+Write-Host "Niektore kodeki audio i video moga nie wspolpracowac z danym formatem/urzadzeniem, aby zapewnic bezproblemowe odtwarzanie zalecane jest audio mp4a i video avc1, aby uzyskac lepsza jakosc nalezy wybrac odpowiednie formaty w zaleznosci od wsparcia danego systemu"
+Write-Host " "
 #Write-Host "[Debug] $lokalizacja; $link; $AudioVideo ;$AudioFormat; $VideoFormat ;$remuxformat" -ForegroundColor Yellow
 #Write-Host '[Debug] yt-dlp $link -f - $remuxFormat -o "%(title)s.%(ext)s" -P $lokalizacja ' -ForegroundColor Yellow
 
 & yt-dlp "$link" -f - @remuxFormat -o "%(title)s.%(ext)s" -P $lokalizacja
 
-Write-Host ""
+Write-Host " "
 Write-Host "Pobieranie zakonczone, plik znajduje sie w $lokalizacja" -ForegroundColor Green
+Write-Host " "
