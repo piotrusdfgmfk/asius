@@ -21,9 +21,12 @@ Invoke-WebRequest "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-
 
  $path = "$env:ProgramData\romper-downloader"
 
-Write-Host "Czarodziej konfiguracji Romper Downloadera v0.97" 
+Write-Host "Czarodziej konfiguracji Romper Downloadera v1.0" 
+
+New-Item -ItemType Directory -Path "$env:ProgramData/romper-downloader/psscripts" *> $null
+
 Write-Host "Pobieranie skryptow..."
-Invoke-WebRequest "https://asius.pages.dev/romperdownloader/romper-downloader.ps1" -OutFile "$env:ProgramData/romper-downloader/romper-downloader.ps1"
+Invoke-WebRequest "https://asius.pages.dev/romperdownloader/romper-downloader.ps1" -OutFile "$env:ProgramData/romper-downloader/psscripts/romper-downloader.ps1"
 
 Sprawdzytdlp
 
@@ -86,11 +89,20 @@ if ($pathEntries -contains $folderToCheck) {
     [EnvironmentVariableTarget]::Machine)
 }
 
-Invoke-WebRequest "https://asius.pages.dev/romperdownloader/install.bat" -OutFile "$env:ProgramData/romper-downloader/update_repair.bat"
+Invoke-WebRequest "https://asius.pages.dev/romperdownloader/install.bat" -OutFile "$env:ProgramData/romper-downloader/romper-downloader-update-repair.bat"
+
+$romper_alias = Read-Host "Wybierz alias dla skryptu (Domyslny: romper-downloader) "
+    if ([string]::IsNullOrWhiteSpace($input)) {
+        $romper_alias = "romper-downloader" # Domyslna wartosc
+    }
+
+Invoke-WebRequest "https://asius.pages.dev/romperdownloader/run.bat" -OutFile "$env:ProgramData/romper-downloader/$romper_alias.bat"
+
+Write-Host " "
 
 Write-Host "Instalacja zakonczona pomyslnie"
 Write-Host " "
 Write-Host "Aby wywolac skrypt wpisz romper-downloader.ps1 w powershellu"
-Write-Host "Aby zaaktualizować lub naprawic skrypt i/lub jego zalezności uruchom plik update_repair.bat w folderze $path"
+Write-Host "Aby zaaktualizować lub naprawic skrypt i/lub jego zalezności uruchom plik romper-downloader-update-repair.bat w folderze $path"
 
 Pause
