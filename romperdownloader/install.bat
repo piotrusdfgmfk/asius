@@ -1,5 +1,5 @@
 @echo off
-setlocal EnableDelayedExpansion
+:: setlocal EnableDelayedExpansion
 
 net session >nul 2>&1
 if %errorLevel% neq 0 (
