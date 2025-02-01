@@ -21,7 +21,7 @@ Invoke-WebRequest "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-
 
  $path = "$env:ProgramData\romper-downloader"
 
-Write-Host "Czarodziej konfiguracji Romper Downloadera v1.0" 
+Write-Host "Czarodziej konfiguracji Romper Downloadera v1.67" 
 
 New-Item -ItemType Directory -Path "$env:ProgramData/romper-downloader/psscripts" *> $null
 
