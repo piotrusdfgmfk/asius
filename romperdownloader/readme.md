@@ -11,10 +11,11 @@ Dlaczego? bo romper nie ogarnia powershelka i nie umiał odpalić tego skryptu
 - Sam instaluje zależości (yt-dlp i ffmpega)
 - Wygodny i fajny w użytku
 - Jak coś się zjebie to się sam naprawi i pobierze nową wersję *wow*
-- Sam aktualizuje ytdlp nie musisz już nigdy ręczenie aktualizować *chyba ze wydam nową wersję tego skryptu to ten tego no*
+- Sam aktualizuje ytdlp nie musisz już nigdy ręczenie aktualizować *chyba ze wydam nową wersję tego skryptu to ten tego no zaaktualizuj prosze*
 - dupadupadupa
 
 # [Pobierz](https://github.com/piotrusdfgmfk/asius/blob/23abb726c4451a791bc695683b8bb445e2b1f3f8/romperdownloader/install.bat)
 
-Pobierz tego bata odpal go i zrobi wszystko za ciebie
+Pobierz tego bata odpal go jako administrator *wysrał się popup czy chcesz uruchiomić plik jako administrator (albo i nie ale nie działa na starym pałerszelu)* i zrobi wszystko za ciebie
+
 Ewenemtualnie jak masz większe skile niż romper pobierz sam skrypt bez instalatorka i tez fajnie bedzie
