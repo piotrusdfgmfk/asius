@@ -92,9 +92,10 @@ if ($pathEntries -contains $folderToCheck) {
 Invoke-WebRequest "https://asius.pages.dev/romperdownloader/install.bat" -OutFile "$env:ProgramData/romper-downloader/romper-downloader-update-repair.bat"
 
 $romper_alias = Read-Host "Wybierz alias dla skryptu (Domyslny: romper-downloader)"
-    if ([string]::IsNullOrWhiteSpace($input)) {
+    if ([string]::IsNullOrWhiteSpace($romper_alias)) {
         $romper_alias = "romper-downloader" # Domyslna wartosc
     }
+
 
 Invoke-WebRequest "https://asius.pages.dev/romperdownloader/run.bat" -OutFile "$env:ProgramData/romper-downloader/$romper_alias.bat"
 
