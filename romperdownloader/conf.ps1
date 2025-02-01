@@ -103,6 +103,6 @@ Write-Host " "
 Write-Host "Instalacja zakonczona pomyslnie"
 Write-Host " "
 Write-Host "Aby wywolac skrypt wpisz romper-downloader.ps1 w powershellu"
-Write-Host "Aby zaaktualizować lub naprawic skrypt i/lub jego zalezności uruchom plik romper-downloader-update-repair.bat w folderze $path"
+Write-Host "Aby zaaktualizowac lub naprawic skrypt i/lub jego zaleznosci uruchom plik romper-downloader-update-repair.bat w folderze $path"
 
 Pause
